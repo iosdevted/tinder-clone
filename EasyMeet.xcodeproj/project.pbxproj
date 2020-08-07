@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4ABFADB0E3B3D2D230EE94E0 /* Pods_EasyMeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C266D0B3C429A35B0E6586A /* Pods_EasyMeet.framework */; };
+		9F1F64A124DD375B00BFF983 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F1F64A024DD375B00BFF983 /* GoogleService-Info.plist */; };
 		9F980F5724DC02C100538178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F980F5624DC02C100538178 /* AppDelegate.swift */; };
 		9F980F5924DC02C100538178 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F980F5824DC02C100538178 /* SceneDelegate.swift */; };
 		9F980F5B24DC02C100538178 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F980F5A24DC02C100538178 /* ViewController.swift */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47046D8CC3EAA7EB8867570A /* Pods-EasyMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMeet.release.xcconfig"; path = "Target Support Files/Pods-EasyMeet/Pods-EasyMeet.release.xcconfig"; sourceTree = "<group>"; };
+		9C266D0B3C429A35B0E6586A /* Pods_EasyMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F1F64A024DD375B00BFF983 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9F980F5324DC02C100538178 /* EasyMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F980F5624DC02C100538178 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F980F5824DC02C100538178 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		9F980F5F24DC02C700538178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F980F6224DC02C700538178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F980F6424DC02C700538178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC192A0D9B7B375EA9C92186 /* Pods-EasyMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMeet.debug.xcconfig"; path = "Target Support Files/Pods-EasyMeet/Pods-EasyMeet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ABFADB0E3B3D2D230EE94E0 /* Pods_EasyMeet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				9F980F5524DC02C100538178 /* EasyMeet */,
 				9F980F5424DC02C100538178 /* Products */,
+				E3600049C4F9A333FA1553E8 /* Pods */,
+				E9162F34513F159A22743C44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,27 @@
 				9F980F5F24DC02C700538178 /* Assets.xcassets */,
 				9F980F6124DC02C700538178 /* LaunchScreen.storyboard */,
 				9F980F6424DC02C700538178 /* Info.plist */,
+				9F1F64A024DD375B00BFF983 /* GoogleService-Info.plist */,
 			);
 			path = EasyMeet;
+			sourceTree = "<group>";
+		};
+		E3600049C4F9A333FA1553E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC192A0D9B7B375EA9C92186 /* Pods-EasyMeet.debug.xcconfig */,
+				47046D8CC3EAA7EB8867570A /* Pods-EasyMeet.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E9162F34513F159A22743C44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C266D0B3C429A35B0E6586A /* Pods_EasyMeet.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F980F6724DC02C700538178 /* Build configuration list for PBXNativeTarget "EasyMeet" */;
 			buildPhases = (
+				F89B7CAE7C52467C254665FA /* [CP] Check Pods Manifest.lock */,
 				9F980F4F24DC02C100538178 /* Sources */,
 				9F980F5024DC02C100538178 /* Frameworks */,
 				9F980F5124DC02C100538178 /* Resources */,
+				6B50C2E3623CD035EA7B443B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F980F6324DC02C700538178 /* LaunchScreen.storyboard in Resources */,
+				9F1F64A124DD375B00BFF983 /* GoogleService-Info.plist in Resources */,
 				9F980F6024DC02C700538178 /* Assets.xcassets in Resources */,
 				9F980F5E24DC02C100538178 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B50C2E3623CD035EA7B443B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyMeet/Pods-EasyMeet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyMeet/Pods-EasyMeet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyMeet/Pods-EasyMeet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F89B7CAE7C52467C254665FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyMeet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9F980F4F24DC02C100538178 /* Sources */ = {
@@ -283,6 +356,7 @@
 		};
 		9F980F6824DC02C700538178 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC192A0D9B7B375EA9C92186 /* Pods-EasyMeet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -296,12 +370,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ted.H.EasyMeet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		9F980F6924DC02C700538178 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47046D8CC3EAA7EB8867570A /* Pods-EasyMeet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,7 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ted.H.EasyMeet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

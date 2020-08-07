@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>715989500031-84ee7350s3p6ds77d9ingom8uonsfes6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.715989500031-84ee7350s3p6ds77d9ingom8uonsfes6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDkSKNfafSe1Cdn6hm9WsbZY0cBTXyrl5Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>715989500031</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Ted.H.EasyMeet</string>
+	<key>PROJECT_ID</key>
+	<string>easymeet-c644a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>easymeet-c644a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:715989500031:ios:381c9021aaf6c1e6f27f4a</string>
+	<key>DATABASE_URL</key>
+	<string>https://easymeet-c644a.firebaseio.com</string>
+</dict>
+</plist>
