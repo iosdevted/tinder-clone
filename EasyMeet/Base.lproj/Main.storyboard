@@ -151,6 +151,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="05e-Lt-OnW" id="dd9-0a-gMB"/>
                         <outlet property="emailTextField" destination="Jmp-Tl-jzr" id="YSk-be-Ydb"/>
                         <outlet property="passwordTextField" destination="b8F-vh-EeX" id="aDv-qH-2cl"/>
                     </connections>
@@ -384,6 +385,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImageView" destination="gi7-81-ot0" id="kp1-C4-sIC"/>
                         <outlet property="cityTextField" destination="xOd-5W-WZZ" id="2IU-XW-XFM"/>
                         <outlet property="confirmPasswordTextField" destination="TRS-dv-Npn" id="gYk-cY-jKJ"/>
                         <outlet property="dateOfBirthTextField" destination="IOe-xc-J0p" id="KBq-5Q-Dk4"/>
