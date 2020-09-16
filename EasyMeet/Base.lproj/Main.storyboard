@@ -301,6 +301,8 @@
                                 </segments>
                                 <connections>
                                     <action selector="genderSegmentOutlet:" destination="Qpj-st-oZ0" eventType="valueChanged" id="eb8-zz-ke0"/>
+                                    <action selector="genderSegmentValueChanged:" destination="Qpj-st-oZ0" eventType="valueChanged" id="m5h-NT-m8m"/>
+                                    <action selector="genderSegmentValueChnaged:" destination="Qpj-st-oZ0" eventType="valueChanged" id="Xrf-mm-imz"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYp-17-98T">

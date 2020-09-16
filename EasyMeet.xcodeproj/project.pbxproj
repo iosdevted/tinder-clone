@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4ABFADB0E3B3D2D230EE94E0 /* Pods_EasyMeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C266D0B3C429A35B0E6586A /* Pods_EasyMeet.framework */; };
 		9F1F64A124DD375B00BFF983 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F1F64A024DD375B00BFF983 /* GoogleService-Info.plist */; };
+		9F952F6825038029003D6795 /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F952F6725038029003D6795 /* FUser.swift */; };
 		9F955B672500D9CE009D56B2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F955B662500D9CE009D56B2 /* WelcomeViewController.swift */; };
 		9F955B692500D9E1009D56B2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F955B682500D9E1009D56B2 /* RegisterViewController.swift */; };
 		9F980F5724DC02C100538178 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F980F5624DC02C100538178 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 		47046D8CC3EAA7EB8867570A /* Pods-EasyMeet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMeet.release.xcconfig"; path = "Target Support Files/Pods-EasyMeet/Pods-EasyMeet.release.xcconfig"; sourceTree = "<group>"; };
 		9C266D0B3C429A35B0E6586A /* Pods_EasyMeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyMeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1F64A024DD375B00BFF983 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9F952F6725038029003D6795 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
 		9F955B662500D9CE009D56B2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9F955B682500D9E1009D56B2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9F980F5324DC02C100538178 /* EasyMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 				9F1F64A024DD375B00BFF983 /* GoogleService-Info.plist */,
 				9F955B662500D9CE009D56B2 /* WelcomeViewController.swift */,
 				9F955B682500D9E1009D56B2 /* RegisterViewController.swift */,
+				9F952F6725038029003D6795 /* FUser.swift */,
 			);
 			path = EasyMeet;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F952F6825038029003D6795 /* FUser.swift in Sources */,
 				9F955B672500D9CE009D56B2 /* WelcomeViewController.swift in Sources */,
 				9F980F5724DC02C100538178 /* AppDelegate.swift in Sources */,
 				9F980F5924DC02C100538178 /* SceneDelegate.swift in Sources */,
