@@ -30,6 +30,13 @@ class WelcomeViewController: UIViewController {
         
         if emailTextField.text != "" {
             //reset password
+            FUser.resetPasswordFor(email: emailTextField.text!) { (error) in
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                } else {
+                    ProgressHUD.showSuccess("Please check your email!")
+                }
+            }
         } else {
             //show error
             ProgressHUD.showError("Please insert your email address.")
@@ -38,7 +45,23 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         if emailTextField.text != "" && passwordTextField.text != "" {
-            //login
+            
+            ProgressHUD.show()
+            
+            FUser.loginUserWith(email: emailTextField.text!, password: passwordTextField.text!) { (error, isEmailVerified) in
+                
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                } else if isEmailVerified {
+                    // enter the application
+                    ProgressHUD.dismiss()
+                    
+                    self.goToApp()
+                } else {
+                    ProgressHUD.showError("Please verify your email")
+                }
+            }
+            
         } else {
             //show error
             ProgressHUD.showError("All fields are required")
@@ -62,5 +85,14 @@ class WelcomeViewController: UIViewController {
     private func dismissKeyboard() {
         self.view.endEditing(false)
     }
+    
+    //MARK: - Navigation
+    private func goToApp() {
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "MainView") as! UITabBarController
+        
+        mainView.modalPresentationStyle = .fullScreen
+        self.present(mainView, animated: true, completion: nil)
+    }
+    
     
 }

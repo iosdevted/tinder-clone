@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Vars
     var isMale = true
+    var datePicker = UIDatePicker()
     
     //MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -29,7 +30,7 @@ class RegisterViewController: UIViewController {
 
         overrideUserInterfaceStyle = .dark
         setupBackgroundTouch()
-        
+        setupDatePicker()
     }
     
     //MARK: - IBActions
@@ -61,6 +62,32 @@ class RegisterViewController: UIViewController {
     }
     
     //MARK: - Setup
+    private func setupDatePicker() {
+        
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+        dateOfBirthTextField.inputView = datePicker
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor().primary()
+        toolBar.sizeToFit()
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
+        
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissKeyboard))
+        
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        dateOfBirthTextField.inputAccessoryView = toolBar
+    }
+    
+    
+    
     private func setupBackgroundTouch() {
         backgroundImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backgroundTap))
@@ -73,8 +100,12 @@ class RegisterViewController: UIViewController {
     }
     
     //MARK: - Helpers
-    private func dismissKeyboard() {
+    @objc private func dismissKeyboard() {
         self.view.endEditing(false)
+    }
+    
+    @objc func handleDatePicker() {
+        dateOfBirthTextField.text = datePicker.date.longDate()
     }
     
     private func isTextDataInputed() -> Bool {
@@ -90,12 +121,10 @@ class RegisterViewController: UIViewController {
             
             if error == nil {
                 ProgressHUD.showSuccess("Verification email sent")
+                self.dismiss(animated: true, completion: nil)
             } else {
                 ProgressHUD.showError(error!.localizedDescription)
             }
-            
-            
-            
         })
     }
 }
