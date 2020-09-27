@@ -18,7 +18,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var cityCountryLabel: UILabel!
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var jobTextField: UITextField!
-    @IBOutlet weak var educationTextField: UITextField!
+    @IBOutlet weak var professionTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var countryTextField: UITextField!
@@ -37,7 +37,12 @@ class ProfileTableViewController: UITableViewController {
         overrideUserInterfaceStyle = .light
         
         setupBackgrounds()
-        updateEditingMode()
+        
+        if FUser.currentUser() != nil {
+            loadUserData()
+            updateEditingMode()
+        }
+        
 
     }
     
@@ -67,6 +72,16 @@ class ProfileTableViewController: UITableViewController {
     
     @objc func editUserData() {
         
+        let user = FUser.currentUser()!
+        
+        user.about = aboutMeTextView.text
+        user.jobTitle = jobTextField.text ?? ""
+        user.profession = professionTextField.text ?? ""
+        user.isMale = genderTextField.text == "Male"
+        user.city = cityTextField.text ?? ""
+        user.country = countryTextField.text ?? ""
+        user.lookingFor = lookingForTextField.text ?? ""
+        user.height = Double(heightTextField.text ?? "0") ?? 0.0
     }
     
     //MARK: - Setup
@@ -86,12 +101,32 @@ class ProfileTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = editingMode ? saveButton : nil
     }
     
+    //MARK: - LoadUserData
+    private func loadUserData() {
+        
+        let currentUser = FUser.currentUser()!
+        
+        nameAgeLabel.text = currentUser.username + ", \(abs(currentUser.dateOfBirth.interval(ofComponent: .year, fromDate: Date())))"
+        cityCountryLabel.text = currentUser.country + ", " + currentUser.city
+        aboutMeTextView.text = currentUser.about != "" ? currentUser.about : "A little bit about me..."
+        jobTextField.text = currentUser.jobTitle
+        professionTextField.text = currentUser.profession
+        genderTextField.text = currentUser.isMale ? "Male" : "Female"
+        cityTextField.text = currentUser.city
+        countryTextField.text = currentUser.country
+        heightTextField.text = "\(currentUser.height)"
+        lookingForTextField.text = currentUser.lookingFor
+        avatarImageView.image = UIImage(named: "avatar")
+        //TODO: Set avatar picture.
+    }
+    
+    
     //MARK: - Editing Mode
     private func updateEditingMode() {
         
         aboutMeTextView.isUserInteractionEnabled = editingMode
         jobTextField.isUserInteractionEnabled = editingMode
-        educationTextField.isUserInteractionEnabled = editingMode
+        professionTextField.isUserInteractionEnabled = editingMode
         genderTextField.isUserInteractionEnabled = editingMode
         cityTextField.isUserInteractionEnabled = editingMode
         countryTextField.isUserInteractionEnabled = editingMode

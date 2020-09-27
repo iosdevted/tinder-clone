@@ -874,12 +874,12 @@
                         <outlet property="cityCountryLabel" destination="KHd-0K-RTv" id="Fql-iK-nb0"/>
                         <outlet property="cityTextField" destination="DWX-Zq-wpt" id="njB-UG-Wpz"/>
                         <outlet property="countryTextField" destination="xHU-L1-hEY" id="Fea-8l-Ptq"/>
-                        <outlet property="educationTextField" destination="mqW-AX-4dz" id="HWV-ld-xk3"/>
                         <outlet property="genderTextField" destination="9T4-fW-Vo5" id="HMt-jl-f0p"/>
                         <outlet property="heightTextField" destination="Vlo-0S-G6j" id="3vr-i8-jMa"/>
                         <outlet property="jobTextField" destination="UPD-Uf-Jy8" id="aPP-OB-zQm"/>
                         <outlet property="lookingForTextField" destination="vJ7-fz-Tar" id="uA0-8q-y1h"/>
                         <outlet property="nameAgeLabel" destination="Zzn-AI-hR5" id="hW7-Vy-qSu"/>
+                        <outlet property="professionTextField" destination="mqW-AX-4dz" id="HWV-ld-xk3"/>
                         <outlet property="profileCellBackgroundView" destination="q6n-qY-lAl" id="AYL-ve-aWk"/>
                     </connections>
                 </tableViewController>
