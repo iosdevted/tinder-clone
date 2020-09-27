@@ -34,6 +34,8 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        overrideUserInterfaceStyle = .light
+        
         setupBackgrounds()
         updateEditingMode()
 
@@ -48,9 +50,11 @@ class ProfileTableViewController: UITableViewController {
     
     
     @IBAction func settingsButtonPressed(_ sender: Any) {
+        showEditOptions()
     }
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
+        showPictureOptions()
     }
     
     @IBAction func editButtonPressed(_ sender: Any) {
@@ -103,5 +107,49 @@ class ProfileTableViewController: UITableViewController {
     
     private func hideKeyboard() {
         self.view.endEditing(false)
+    }
+    
+    //MARK: - AlertController
+    private func showPictureOptions() {
+        
+        let alertController = UIAlertController(title: "Upload Picture", message: "You can change your Avatar or upload more pictures", preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Change Avatar", style: .default, handler: { (alert) in
+            
+            print("Change Avatar")
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Upload Pictures", style: .default, handler: { (alert) in
+            
+            print("Upload pictures")
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showEditOptions() {
+        
+        let alertController = UIAlertController(title: "Edit Account", message: "You are about to edit sensitive information about your account.", preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Change Email", style: .default, handler: { (alert) in
+            
+            print("Change email")
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Change Name", style: .default, handler: { (alert) in
+            
+            print("Change name")
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (alert) in
+            
+            print("Log Out")
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
