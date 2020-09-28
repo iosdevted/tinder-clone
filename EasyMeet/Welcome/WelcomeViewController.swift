@@ -30,7 +30,7 @@ class WelcomeViewController: UIViewController {
         
         if emailTextField.text != "" {
             //reset password
-            FUser.resetPasswordFor(email: emailTextField.text!) { (error) in
+            FUser.resetPassword(email: emailTextField.text!) { (error) in
                 if error != nil {
                     ProgressHUD.showError(error!.localizedDescription)
                 } else {

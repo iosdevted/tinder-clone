@@ -34,6 +34,8 @@ class ProfileTableViewController: UITableViewController {
     var avatarImage: UIImage?
     var gallery: GalleryController!
     
+    var alertTextField: UITextField!
+    
     //MARK: - ViewLifeCycle
     
     override func viewDidLoad() {
@@ -139,8 +141,12 @@ class ProfileTableViewController: UITableViewController {
     
     //MARK: - LoadUserData
     private func loadUserData() {
-        
+            
         let currentUser = FUser.currentUser()!
+        
+        FileStorage.downloadImage(imageUrl: currentUser.avatarLink) { (image) in
+            
+        }
         
         nameAgeLabel.text = currentUser.username + ", \(abs(currentUser.dateOfBirth.interval(ofComponent: .year, fromDate: Date())))"
         cityCountryLabel.text = currentUser.country + ", " + currentUser.city
@@ -152,9 +158,9 @@ class ProfileTableViewController: UITableViewController {
         countryTextField.text = currentUser.country
         heightTextField.text = "\(currentUser.height)"
         lookingForTextField.text = currentUser.lookingFor
-        avatarImageView.image = UIImage(named: "avatar")
+        avatarImageView.image = UIImage(named: "avatar")?.circleMasked
         
-        avatarImageView.image = currentUser.avatar
+        avatarImageView.image = currentUser.avatar?.circleMasked
     }
     
     
@@ -201,7 +207,16 @@ class ProfileTableViewController: UITableViewController {
         
         ProgressHUD.show()
         
-        //upload images
+        FileStorage.uploadImages(images) { (imageLinks) in
+            
+            ProgressHUD.dismiss()
+            
+            let currentUser = FUser.currentUser()!
+            
+            currentUser.imageLinks = imageLinks
+            
+            self.saveUserData(user: currentUser)
+        }
         
         
         
@@ -248,22 +263,107 @@ class ProfileTableViewController: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Change Email", style: .default, handler: { (alert) in
             
-            print("Change email")
+            self.showChangeField(value: "Email")
         }))
         
         alertController.addAction(UIAlertAction(title: "Change Name", style: .default, handler: { (alert) in
             
-            print("Change name")
+            self.showChangeField(value: "Name")
         }))
         
         alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (alert) in
             
-            print("Log Out")
+            self.logOutUser()
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func showChangeField(value: String) {
+        
+        let alertView = UIAlertController(title: "Updating \(value)", message: "Please write your \(value)", preferredStyle: .alert)
+        
+        alertView.addTextField { (textField) in
+            self.alertTextField = textField
+            self.alertTextField.placeholder = "new \(value)"
+        }
+        
+        alertView.addAction(UIAlertAction(title: "Update", style: .destructive, handler: { (action) in
+            
+            self.updateUserWith(value: value)
+        }))
+        
+        alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertView, animated: true, completion: nil)
+        
+    }
+    
+    //MARK: - Change user info
+    
+    private func updateUserWith(value: String) {
+        
+        if alertTextField.text != "" {
+            
+            value == "Email" ? changeEmail() : changeUserName()
+            
+        } else {
+            ProgressHUD.showError("\(value) is empty")
+        }
+        
+    }
+    
+    private func changeEmail() {
+     
+        FUser.currentUser()?.updateUserEmail(newEmail: alertTextField.text!, completion: { (error) in
+            
+            if error == nil {
+                if let currentUser = FUser.currentUser() {
+                    currentUser.email = self.alertTextField.text!
+                    self.saveUserData(user: currentUser)
+                }
+                ProgressHUD.showSuccess("Success!")
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        })
+        
+    }
+    
+    private func changeUserName() {
+        
+        if let currentUser = FUser.currentUser() {
+            currentUser.username = alertTextField.text!
+            
+            saveUserData(user: currentUser)
+            loadUserData()
+        }
+        
+    }
+    
+    //MARK: - LogOUt
+    
+    private func logOutUser() {
+        
+        FUser.logOutCurrentUser { (error) in
+            
+            if error == nil {
+                
+                let loginView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "loginView")
+                
+                DispatchQueue.main.async {
+                    
+                    loginView.modalPresentationStyle = .fullScreen
+                    self.present(loginView, animated: true, completion: nil)
+                }
+                
+            } else {
+                ProgressHUD.showError(error!.localizedDescription)
+            }
+        }
+        
     }
 }
 
@@ -282,7 +382,7 @@ extension ProfileTableViewController: GalleryControllerDelegate {
                         self.editingMode = true
                         self.showSaveButton()
                         
-                        self.avatarImageView.image = icon
+                        self.avatarImageView.image = icon?.circleMasked
                         self.avatarImage = icon
                     } else {
                         ProgressHUD.showError("Couldn't Select Image!")

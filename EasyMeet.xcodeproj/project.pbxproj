@@ -112,7 +112,7 @@
 				9F980F5624DC02C100538178 /* AppDelegate.swift */,
 				9F980F5824DC02C100538178 /* SceneDelegate.swift */,
 				9F206011251F2D7A00A433AE /* ProfileTableViewController.swift */,
-				9FD0D0612521BE96003D9247 /* FileStorage.swift */,
+				9FD0D064252200A0003D9247 /* FirebaseHelpers */,
 				9F980F5C24DC02C100538178 /* Main.storyboard */,
 				9F980F5F24DC02C700538178 /* Assets.xcassets */,
 				9F980F6124DC02C700538178 /* LaunchScreen.storyboard */,
@@ -123,6 +123,14 @@
 				9F44A56D2515E0980057E3BE /* Helpers */,
 			);
 			path = EasyMeet;
+			sourceTree = "<group>";
+		};
+		9FD0D064252200A0003D9247 /* FirebaseHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				9FD0D0612521BE96003D9247 /* FileStorage.swift */,
+			);
+			path = FirebaseHelpers;
 			sourceTree = "<group>";
 		};
 		E3600049C4F9A333FA1553E8 /* Pods */ = {

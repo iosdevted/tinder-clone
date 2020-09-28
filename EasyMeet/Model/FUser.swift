@@ -142,6 +142,17 @@ class FUser: Equatable {
         return nil
     }
     
+    func gerUserAvatarFromFirestore(completion: @escaping (_ didSet: Bool) -> Void) {
+        
+        FileStorage.downloadImage(imageUrl: self.avatarLink) { (avatarImage) in
+            
+            let placeholder = self.isMale ? "mPlaceholder" : "fPlaceholder"
+            self.avatar = avatarImage ?? UIImage(named: placeholder)
+            
+            completion(true)
+        }
+    }
+    
     
     //MARK: - Login
     class func loginUserWith(email: String, password: String, completion: @escaping (_ error: Error?, _ isEmailVerified: Bool) -> Void) {
@@ -188,9 +199,24 @@ class FUser: Equatable {
         }
     }
     
+    //MARK: - Edit User profile
+    
+    func updateUserEmail(newEmail: String, completion: @escaping (_ error: Error?) -> Void) {
+        
+        Auth.auth().currentUser?.updateEmail(to: newEmail, completion: { (error) in
+            
+            FUser.resendVerificationEmail(email: newEmail) { (error) in
+                
+            }
+            
+            completion(error)
+        })
+        
+    }
+    
     //MARK: - Resend Links
     
-    class func resetPasswordFor(email: String, completion: @escaping (_ error: Error?) -> Void) {
+    class func resendVerificationEmail(email: String, completion: @escaping (_ error: Error?) -> Void) {
         
         Auth.auth().currentUser?.reload(completion: { (error) in
             
@@ -199,6 +225,30 @@ class FUser: Equatable {
                 completion(error)
             })
         })
+    }
+    
+    class func resetPassword(email: String, completion: @escaping (_ error: Error?) -> Void) {
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            completion(error)
+        }
+        
+    }
+    
+    //MARK: - LogOut user
+    
+    class func logOutCurrentUser(completion: @escaping(_ error: Error?) -> Void) {
+        
+        do {
+            try Auth.auth().signOut()
+            userDefaults.removeObject(forKey: kCURRENTUSER)
+            userDefaults.synchronize()
+            completion(nil)
+            
+        } catch let error as NSError {
+            completion(error)
+        }
+        
     }
     
     
