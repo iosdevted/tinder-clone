@@ -27,6 +27,9 @@ class FirebaseListener {
                 
                 let user = FUser(_dictionary: snapshot.data() as! NSDictionary)
                 user.saveUserLocally()
+                
+                
+                
             } else {
                 //first login
                 

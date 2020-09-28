@@ -8,6 +8,7 @@
 import Foundation
 
 public let userDefaults = UserDefaults.standard
+public let kFILEREFERENCE = "gs://easymeet-c644a.appspot.com/"
 
 //Fuser
 public let kOBJECTID = "objectId"

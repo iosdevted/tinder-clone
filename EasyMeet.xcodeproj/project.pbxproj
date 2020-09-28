@@ -22,6 +22,7 @@
 		9F980F5E24DC02C100538178 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F980F5C24DC02C100538178 /* Main.storyboard */; };
 		9F980F6024DC02C700538178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F980F5F24DC02C700538178 /* Assets.xcassets */; };
 		9F980F6324DC02C700538178 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F980F6124DC02C700538178 /* LaunchScreen.storyboard */; };
+		9FD0D0622521BE96003D9247 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0D0612521BE96003D9247 /* FileStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		9F980F5F24DC02C700538178 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F980F6224DC02C700538178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F980F6424DC02C700538178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FD0D0612521BE96003D9247 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		CC192A0D9B7B375EA9C92186 /* Pods-EasyMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMeet.debug.xcconfig"; path = "Target Support Files/Pods-EasyMeet/Pods-EasyMeet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				9F980F5624DC02C100538178 /* AppDelegate.swift */,
 				9F980F5824DC02C100538178 /* SceneDelegate.swift */,
 				9F206011251F2D7A00A433AE /* ProfileTableViewController.swift */,
+				9FD0D0612521BE96003D9247 /* FileStorage.swift */,
 				9F980F5C24DC02C100538178 /* Main.storyboard */,
 				9F980F5F24DC02C700538178 /* Assets.xcassets */,
 				9F980F6124DC02C700538178 /* LaunchScreen.storyboard */,
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F44A5772515E97C0057E3BE /* FirebaseListener.swift in Sources */,
+				9FD0D0622521BE96003D9247 /* FileStorage.swift in Sources */,
 				9F74F7002517622300AF30DC /* Extensions.swift in Sources */,
 				9F952F6825038029003D6795 /* FUser.swift in Sources */,
 				9F955B672500D9CE009D56B2 /* WelcomeViewController.swift in Sources */,

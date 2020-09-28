@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Gallery
+import ProgressHUD
 
 class ProfileTableViewController: UITableViewController {
     
@@ -27,7 +29,10 @@ class ProfileTableViewController: UITableViewController {
     
     //MARK: - Vars
     var editingMode = false
+    var uploadingAvatar = true
     
+    var avatarImage: UIImage?
+    var gallery: GalleryController!
     
     //MARK: - ViewLifeCycle
     
@@ -82,6 +87,37 @@ class ProfileTableViewController: UITableViewController {
         user.country = countryTextField.text ?? ""
         user.lookingFor = lookingForTextField.text ?? ""
         user.height = Double(heightTextField.text ?? "0") ?? 0.0
+        
+        if avatarImage != nil {
+            //upload new avatar
+            //save user
+            uploadAvatar(avatarImage!) { (avatarLink) in
+                
+                user.avatarLink = avatarLink ?? ""
+                user.avatar = self.avatarImage
+                
+                self.saveUserData(user: user)
+                self.loadUserData()
+            }
+            
+            
+        } else {
+            //save
+            saveUserData(user: user)
+            loadUserData()
+        }
+        
+        editingMode = false
+        updateEditingMode()
+        showSaveButton()
+        
+    }
+    
+    private func saveUserData(user: FUser) {
+        
+        user.saveUserLocally()
+        user.saveUserToFireStore()
+        
     }
     
     //MARK: - Setup
@@ -117,7 +153,8 @@ class ProfileTableViewController: UITableViewController {
         heightTextField.text = "\(currentUser.height)"
         lookingForTextField.text = currentUser.lookingFor
         avatarImageView.image = UIImage(named: "avatar")
-        //TODO: Set avatar picture.
+        
+        avatarImageView.image = currentUser.avatar
     }
     
     
@@ -144,6 +181,47 @@ class ProfileTableViewController: UITableViewController {
         self.view.endEditing(false)
     }
     
+    //MARK: - FileStorage
+    
+    private func uploadAvatar(_ image: UIImage, completion: @escaping (_ avatarLink: String?) -> Void) {
+        ProgressHUD.show()
+        
+        let fileDirectory = "Avatar/_" + FUser.currentId() + ".jpg"
+        
+        FileStorage.uploadImage(image, directory: fileDirectory) { (avatarLink) in
+            ProgressHUD.dismiss()
+            //save file locally
+            FileStorage.saveImageLocally(imageData: image.jpegData(compressionQuality: 0.8)! as NSData, fileName: FUser.currentId())
+            completion(avatarLink)
+            
+        }
+    }
+    
+    private func uploadImages(images: [UIImage?]) {
+        
+        ProgressHUD.show()
+        
+        //upload images
+        
+        
+        
+    }
+    
+    //MARK: - Gallery
+    
+    private func showGallery(forAvatar: Bool) {
+        
+        uploadingAvatar = forAvatar
+        
+        self.gallery = GalleryController()
+        self.gallery.delegate = self
+        Config.tabsToShow = [.imageTab, .cameraTab]
+        Config.Camera.imageLimit = forAvatar ? 1 : 10
+        Config.initialTab = . imageTab
+        
+        self.present(gallery, animated: true, completion: nil)
+    }
+    
     //MARK: - AlertController
     private func showPictureOptions() {
         
@@ -151,12 +229,12 @@ class ProfileTableViewController: UITableViewController {
         
         alertController.addAction(UIAlertAction(title: "Change Avatar", style: .default, handler: { (alert) in
             
-            print("Change Avatar")
+            self.showGallery(forAvatar: true)
         }))
         
         alertController.addAction(UIAlertAction(title: "Upload Pictures", style: .default, handler: { (alert) in
             
-            print("Upload pictures")
+            self.showGallery(forAvatar: false)
         }))
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -187,4 +265,55 @@ class ProfileTableViewController: UITableViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+}
+
+
+extension ProfileTableViewController: GalleryControllerDelegate {
+    func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
+        
+        if images.count > 0 {
+        
+            if uploadingAvatar {
+                
+                images.first!.resolve { (icon) in
+                    
+                    if icon != nil {
+                        
+                        self.editingMode = true
+                        self.showSaveButton()
+                        
+                        self.avatarImageView.image = icon
+                        self.avatarImage = icon
+                    } else {
+                        ProgressHUD.showError("Couldn't Select Image!")
+                    }
+                }
+                
+            } else {
+                
+                Image.resolve(images: images) { (resolvedImages) in
+                    
+                    self.uploadImages(images: resolvedImages)
+                    
+                }
+            }
+            
+        }
+        
+        
+    }
+    
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func galleryControllerDidCancel(_ controller: GalleryController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
