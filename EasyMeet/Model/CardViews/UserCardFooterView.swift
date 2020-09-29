@@ -37,9 +37,11 @@ class UserCardFooterView: UIView {
             paragraphStyle.lineSpacing = 4
             paragraphStyle.lineBreakMode = .byTruncatingTail
             attributedText.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: attributedText.length))
-            label.attributedText = attributedText
-            addSubview(label)
+            label.numberOfLines = 2
         }
+        
+        label.attributedText = attributedText
+        addSubview(label)
     }
     
     override func layoutSubviews() {

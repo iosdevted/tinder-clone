@@ -270,3 +270,31 @@ class FUser: Equatable {
         }
     }
 }
+
+func createUsers() {
+    
+    let names = ["a", "b", "c", "d", "e", "f"]
+    var imageIndex = 1
+    var userIndex = 1
+    var isMale = true
+    
+    for i in 0..<5 {
+        
+        let id = UUID().uuidString
+        
+        let fireDirectory = "Avatars/_" + FUser.currentId() + ".jpg"
+        
+        FileStorage.uploadImage(UIImage(named: "user\(imageIndex)")!, directory: fireDirectory) { (avatarLink) in
+            let user = FUser(_objectId: id, _email: "user\(userIndex)@mail.com", _username: names[i], _city: "No City", _dateOfBirth: Date(), _isMale: isMale, _avatarLink: avatarLink ?? "")
+            
+            isMale.toggle()
+            userIndex += 1
+            user.saveUserToFireStore()
+        }
+        
+        imageIndex += 1
+        if imageIndex == 16 {
+            imageIndex = 1
+        }
+    }
+}

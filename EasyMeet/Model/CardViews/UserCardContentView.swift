@@ -51,12 +51,13 @@ class UserCardContentView: UIView {
         applyShadow(radius: 8, opacity: 0.2, offset: CGSize(width: 0, height: 2))
         backgroundView.layer.insertSublayer(gradientLayer, above: imageView.layer)
         
+        
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         let heightFactor: CGFloat = 0.35
-        gradientLayer.frame = CGRect(x: 0, y: (1 - heightFactor * bounds.height), width: bounds.width, height: heightFactor * bounds.height)
+        gradientLayer.frame = CGRect(x: 0, y: (1 - heightFactor) * bounds.height, width: bounds.width, height: heightFactor * bounds.height)
     
     }
 }
