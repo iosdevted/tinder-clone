@@ -401,17 +401,17 @@
             </objects>
             <point key="canvasLocation" x="869.60000000000002" y="118.96551724137932"/>
         </scene>
-        <!--View Controller-->
+        <!--Easy Meet-->
         <scene sceneID="Eni-gW-fce">
             <objects>
-                <viewController id="DZY-wG-SQ4" sceneMemberID="viewController">
+                <viewController id="DZY-wG-SQ4" customClass="CardViewController" customModule="EasyMeet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r43-hi-t1M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="v1y-kH-5Yk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="M05-mv-8b4"/>
+                    <navigationItem key="navigationItem" title="Easy Meet" id="M05-mv-8b4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIb-pZ-cRA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -435,11 +435,11 @@
             </objects>
             <point key="canvasLocation" x="1769" y="119"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="po8-w2-3WY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yxq-Qs-Pf7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="nMc-Fl-fJJ"/>
+                    <tabBarItem key="tabBarItem" title="" image="face.smiling.fill" catalog="system" id="nMc-Fl-fJJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wld-si-ZjU">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -894,6 +894,7 @@
         <image name="back" width="11" height="19"/>
         <image name="camera" width="60" height="60"/>
         <image name="edit" width="80" height="80"/>
+        <image name="face.smiling.fill" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="loginBavkground" width="375" height="812"/>
         <image name="settings" width="80" height="80"/>

@@ -23,6 +23,12 @@
 		9F980F6024DC02C700538178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F980F5F24DC02C700538178 /* Assets.xcassets */; };
 		9F980F6324DC02C700538178 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F980F6124DC02C700538178 /* LaunchScreen.storyboard */; };
 		9FD0D0622521BE96003D9247 /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0D0612521BE96003D9247 /* FileStorage.swift */; };
+		9FF1CA7C252311F20035780C /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1CA7B252311F20035780C /* CardViewController.swift */; };
+		9FF1CA84252319040035780C /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1CA83252319040035780C /* UserCard.swift */; };
+		9FF1CA8825231B550035780C /* UserCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1CA8725231B550035780C /* UserCardModel.swift */; };
+		9FF1CA8B25231BC30035780C /* UserCardOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1CA8A25231BC30035780C /* UserCardOverlay.swift */; };
+		9FF1CA8E25232AE40035780C /* UserCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1CA8D25232AE40035780C /* UserCardContentView.swift */; };
+		9FF1CA9325232F9D0035780C /* UserCardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF1CA9225232F9D0035780C /* UserCardFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +51,12 @@
 		9F980F6224DC02C700538178 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F980F6424DC02C700538178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FD0D0612521BE96003D9247 /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		9FF1CA7B252311F20035780C /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		9FF1CA83252319040035780C /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
+		9FF1CA8725231B550035780C /* UserCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardModel.swift; sourceTree = "<group>"; };
+		9FF1CA8A25231BC30035780C /* UserCardOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardOverlay.swift; sourceTree = "<group>"; };
+		9FF1CA8D25232AE40035780C /* UserCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardContentView.swift; sourceTree = "<group>"; };
+		9FF1CA9225232F9D0035780C /* UserCardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardFooterView.swift; sourceTree = "<group>"; };
 		CC192A0D9B7B375EA9C92186 /* Pods-EasyMeet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMeet.debug.xcconfig"; path = "Target Support Files/Pods-EasyMeet/Pods-EasyMeet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				9F952F6725038029003D6795 /* FUser.swift */,
+				9FF1CA8625231B080035780C /* CardViews */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,17 +122,17 @@
 		9F980F5524DC02C100538178 /* EasyMeet */ = {
 			isa = PBXGroup;
 			children = (
-				9F980F5624DC02C100538178 /* AppDelegate.swift */,
-				9F980F5824DC02C100538178 /* SceneDelegate.swift */,
-				9F206011251F2D7A00A433AE /* ProfileTableViewController.swift */,
-				9FD0D064252200A0003D9247 /* FirebaseHelpers */,
 				9F980F5C24DC02C100538178 /* Main.storyboard */,
 				9F980F5F24DC02C700538178 /* Assets.xcassets */,
 				9F980F6124DC02C700538178 /* LaunchScreen.storyboard */,
 				9F980F6424DC02C700538178 /* Info.plist */,
 				9F1F64A024DD375B00BFF983 /* GoogleService-Info.plist */,
+				9F980F5624DC02C100538178 /* AppDelegate.swift */,
+				9F980F5824DC02C100538178 /* SceneDelegate.swift */,
+				9FF1CA812523188D0035780C /* MainViews */,
 				9F44A5702515E0AC0057E3BE /* Welcome */,
 				9F44A56B2515E08B0057E3BE /* Model */,
+				9FD0D064252200A0003D9247 /* FirebaseHelpers */,
 				9F44A56D2515E0980057E3BE /* Helpers */,
 			);
 			path = EasyMeet;
@@ -131,6 +144,27 @@
 				9FD0D0612521BE96003D9247 /* FileStorage.swift */,
 			);
 			path = FirebaseHelpers;
+			sourceTree = "<group>";
+		};
+		9FF1CA812523188D0035780C /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				9FF1CA7B252311F20035780C /* CardViewController.swift */,
+				9F206011251F2D7A00A433AE /* ProfileTableViewController.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		9FF1CA8625231B080035780C /* CardViews */ = {
+			isa = PBXGroup;
+			children = (
+				9FF1CA83252319040035780C /* UserCard.swift */,
+				9FF1CA8725231B550035780C /* UserCardModel.swift */,
+				9FF1CA9225232F9D0035780C /* UserCardFooterView.swift */,
+				9FF1CA8A25231BC30035780C /* UserCardOverlay.swift */,
+				9FF1CA8D25232AE40035780C /* UserCardContentView.swift */,
+			);
+			path = CardViews;
 			sourceTree = "<group>";
 		};
 		E3600049C4F9A333FA1553E8 /* Pods */ = {
@@ -266,14 +300,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F44A5772515E97C0057E3BE /* FirebaseListener.swift in Sources */,
+				9FF1CA9325232F9D0035780C /* UserCardFooterView.swift in Sources */,
 				9FD0D0622521BE96003D9247 /* FileStorage.swift in Sources */,
 				9F74F7002517622300AF30DC /* Extensions.swift in Sources */,
+				9FF1CA8E25232AE40035780C /* UserCardContentView.swift in Sources */,
 				9F952F6825038029003D6795 /* FUser.swift in Sources */,
+				9FF1CA8825231B550035780C /* UserCardModel.swift in Sources */,
 				9F955B672500D9CE009D56B2 /* WelcomeViewController.swift in Sources */,
 				9F980F5724DC02C100538178 /* AppDelegate.swift in Sources */,
 				9F980F5924DC02C100538178 /* SceneDelegate.swift in Sources */,
 				9F206012251F2D7A00A433AE /* ProfileTableViewController.swift in Sources */,
+				9FF1CA7C252311F20035780C /* CardViewController.swift in Sources */,
 				9F955B692500D9E1009D56B2 /* RegisterViewController.swift in Sources */,
+				9FF1CA8B25231BC30035780C /* UserCardOverlay.swift in Sources */,
+				9FF1CA84252319040035780C /* UserCard.swift in Sources */,
 				9F44A5732515E1510057E3BE /* FCollectionReference.swift in Sources */,
 				9F44A56825154DAC0057E3BE /* Constants.swift in Sources */,
 			);
